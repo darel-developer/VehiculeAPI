@@ -60,9 +60,11 @@ L’API sera disponible à : http://localhost:8080/api/vehicles
 
  Exemple de requêtes Postman
 ```
-GET /api/vehicles → Tous les véhicules
+GET http:localhost:8080/api/vehicles → Tous les véhicules
 
-GET /api/vehicles/1 → Véhicule avec ID = 1
+GET http:localhost:8080/api/vehicles/1 → Véhicule avec ID = 1
+
+GET http://localhost:8080/api/vehicules/search/price/50000 → Véhicule avec pour prix = 50000 
 
 POST /api/vehicles → Créer un véhicule
 
@@ -77,10 +79,12 @@ Modifier
   "brand": "Renault",
   "model": "Clio",
   "type": "car",
-  "plateNumber": "AA123BB"
+  "plateNumber": "AA123BB",
+  "year": 2020,
+  "price": 50000
 }
 ```
-👨‍💻 Auteur
+#👨‍💻 Auteur
 Développé dans le cadre du TP00 – Software Testing - API Construction pour le cours ICT 304.
 
 Université de Yaoundé I
