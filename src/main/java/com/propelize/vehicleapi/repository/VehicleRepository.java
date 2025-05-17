@@ -10,5 +10,8 @@ import java.util.List;
 public interface VehicleRepository extends JpaRepository<Vehicle, Long> {
     List<Vehicle> findByPrice(int price);
     List<Vehicle> findByYear(int year);
-
+    // - findAll()
+    // - findById(id)
+    // - save(vehicle)
+    // - deleteById(id)
 }
