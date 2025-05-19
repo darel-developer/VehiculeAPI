@@ -15,19 +15,19 @@ public class VehicleController {
     @Autowired
     private VehicleService vehicleService;
 
-    // 🔹 Créer un véhicule
+    // 🔹endpoint Créer un véhicule
     @PostMapping
     public Vehicle createVehicle(@RequestBody Vehicle vehicle) {
         return vehicleService.saveVehicle(vehicle);
     }
 
-    // 🔹 Récupérer tous les véhicules
+    // 🔹endpoint Récupérer tous les véhicules
     @GetMapping
     public List<Vehicle> getAllVehicles() {
         return vehicleService.getAllVehicles();
     }
 
-    // Récupérer un véhicule par ID
+    // endpoint Récupérer un véhicule par ID
     @GetMapping("/{id}")
     public ResponseEntity<Vehicle> getVehicleById(@PathVariable Long id) {
         return vehicleService.getVehicleById(id)
@@ -35,7 +35,7 @@ public class VehicleController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    // Récupérer un véhivule par le prix
+    // endpoint Récupérer un véhivule par le prix
     @GetMapping("/search/price/{price}")
     public ResponseEntity<List<Vehicle>> getVehiclesByPrice(@PathVariable int price) {
         return ResponseEntity.ok(vehicleService.getVehiclesByPrice(price));
@@ -46,7 +46,7 @@ public class VehicleController {
         return ResponseEntity.ok(vehicleService.getVehiculesByYear(year));
     }
 
-    //  Mettre à jour un véhicule
+    // endpoint Mettre à jour un véhicule
     @PutMapping("/{id}")
     public ResponseEntity<Vehicle> updateVehicle(@PathVariable Long id, @RequestBody Vehicle updatedVehicle) {
         return vehicleService.getVehicleById(id).map(vehicle -> {
@@ -60,7 +60,7 @@ public class VehicleController {
         }).orElse(ResponseEntity.notFound().build());
     }
 
-    // 🔹 Supprimer un véhicule
+    // 🔹endpoint Supprimer un véhicule
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteVehicle(@PathVariable Long id) {
         vehicleService.deleteVehicle(id);
