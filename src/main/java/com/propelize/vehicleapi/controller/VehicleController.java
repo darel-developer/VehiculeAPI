@@ -40,7 +40,7 @@ public class VehicleController {
     // endpoint Récupérer un véhivule par le prix
     @GetMapping("/search/price/{price}")
     public ResponseEntity<List<Vehicle>> getVehiclesByPrice(@PathVariable int price) {
-        
+
         return ResponseEntity.ok(vehicleService.getVehiclesByPrice(price));
     }
 
@@ -66,6 +66,7 @@ public class VehicleController {
     // 🔹endpoint Supprimer un véhicule
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteVehicle(@PathVariable Long id) {
+
         vehicleService.deleteVehicle(id);
         return ResponseEntity.noContent().build();
     }
