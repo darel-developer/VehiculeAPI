@@ -24,12 +24,14 @@ public class VehicleController {
     // 🔹endpoint Récupérer tous les véhicules
     @GetMapping
     public List<Vehicle> getAllVehicles() {
+
         return vehicleService.getAllVehicles();
     }
 
     // endpoint Récupérer un véhicule par ID
     @GetMapping("/{id}")
     public ResponseEntity<Vehicle> getVehicleById(@PathVariable Long id) {
+
         return vehicleService.getVehicleById(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
@@ -38,6 +40,7 @@ public class VehicleController {
     // endpoint Récupérer un véhivule par le prix
     @GetMapping("/search/price/{price}")
     public ResponseEntity<List<Vehicle>> getVehiclesByPrice(@PathVariable int price) {
+        
         return ResponseEntity.ok(vehicleService.getVehiclesByPrice(price));
     }
 
