@@ -11,6 +11,7 @@ public class User {
     private Long id;
 
     // Attributs représentant les propriétés de l'utilisateur
+    @Column(unique = true)
     private String name;
     private String password;
 

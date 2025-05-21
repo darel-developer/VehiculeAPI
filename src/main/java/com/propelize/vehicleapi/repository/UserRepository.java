@@ -10,4 +10,5 @@ import java.util.Optional;
 public interface UserRepository extends JpaRepository<User, Long> {
     // Trouver un utilisateur par son nom
     Optional<User> findByName(String name);
+    Optional<User> findByNameIgnoreCase(String name);
 }
