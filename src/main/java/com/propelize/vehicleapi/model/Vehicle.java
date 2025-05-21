@@ -1,3 +1,4 @@
+// Déclaration du package de la classe
 package com.propelize.vehicleapi.model;
 
 import jakarta.persistence.*;
@@ -6,17 +7,17 @@ import jakarta.persistence.*;
 @Table(name = "vehicles")
 public class Vehicle {
 
-    @Id
+    @Id     //Indique que ce champ est la clé primaire
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    // Attributs représentant les propriétés du véhicule (Marque, Modèle, Type, Numéro de plaque, Annee de fabrication, et Prix du vehicule)
     private String brand;
     private String model;
     private String type;
     private String plateNumber;
 
     private int year;
-
     private int price;
 
     // Constructeurs
