@@ -45,6 +45,7 @@ public class VehicleController {
     public ResponseEntity<List<Vehicle>> getVehicleByYear(@PathVariable int year) {
         return ResponseEntity.ok(vehicleService.getVehiculesByYear(year));
     }
+    
 
     // endpoint Mettre à jour un véhicule
     @PutMapping("/{id}")
