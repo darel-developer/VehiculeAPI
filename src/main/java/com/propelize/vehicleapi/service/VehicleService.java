@@ -1,6 +1,5 @@
 package com.propelize.vehicleapi.service;
 
-import aj.org.objectweb.asm.commons.Remapper;
 import com.propelize.vehicleapi.model.Vehicle;
 import com.propelize.vehicleapi.repository.VehicleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
