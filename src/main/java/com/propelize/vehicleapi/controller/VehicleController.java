@@ -34,7 +34,7 @@ public class VehicleController {
 
         return vehicleService.getVehicleById(id)
                 .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
+                .orElse(ResponseEntity.notFound().build()); 
     }
 
     // endpoint Récupérer un véhivule par le prix
@@ -46,7 +46,7 @@ public class VehicleController {
 
     @GetMapping("/search/year/{year}")
     public ResponseEntity<List<Vehicle>> getVehicleByYear(@PathVariable int year) {
-        return ResponseEntity.ok(vehicleService.getVehiculesByYear(year));
+        return ResponseEntity.ok(vehicleService.getVehiculesByYear(year)); 
     }
 
     // endpoint Mettre à jour un véhicule
