@@ -44,7 +44,7 @@ src/
 1. Crée la base de données :
 
 ```sql
-CREATE DATABASE vehicle_db; 
+Executer la commande docker-compose up -d; 
 ```
 2. Configure src/main/resources/application.properties 
 ```
