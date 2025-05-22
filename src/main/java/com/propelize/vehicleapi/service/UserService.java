@@ -45,6 +45,10 @@ public class UserService {
         userRepository.deleteById(id);
     }
 
+    public Optional<User> findByName(String name) {
+        return userRepository.findByName(name);
+    }
+
     // Authentifier un utilisateur et retourner un JWT
     public String authenticate(AuthRequest authRequest) {
         // On suppose que AuthRequest a getUsername()
