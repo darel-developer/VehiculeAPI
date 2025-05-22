@@ -8,6 +8,8 @@ import com.propelize.vehicleapi.service.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 @RestController
 @RequestMapping("/auth")
@@ -35,7 +37,15 @@ public class AuthController {
     @PostMapping("/login")
     public ResponseEntity<AuthResponse> login(@RequestBody AuthRequest authRequest) {
         String token = userService.authenticate(authRequest);
-        AuthResponse authResponse = new AuthResponse(token);
+        User user = userService.findByName(authRequest.getName())
+                .orElseThrow(() -> new RuntimeException("Utilisateur non trouvé"));
+        String serverTime = LocalDateTime.now().format(DateTimeFormatter.ISO_LOCAL_DATE_TIME);
+        AuthResponse authResponse = new AuthResponse(
+                token,
+                // user.getId(),
+                user.getName(),
+                serverTime
+        );
         return ResponseEntity.ok(authResponse);
     }
 }
