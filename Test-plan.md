@@ -1,6 +1,6 @@
-# 🧪 Plan de test pour l'API VehicleAPI
+#  Plan de test pour l'API VehicleAPI
 
-## 1. 🎯 Objectif du test
+## 1.  Objectif du test
 
 Ce plan de test vise à valider le bon fonctionnement et la sécurité de l’API `vehicleapi`. Les objectifs sont :
 
@@ -11,7 +11,7 @@ Ce plan de test vise à valider le bon fonctionnement et la sécurité de l’AP
 
 ---
 
-## 2. 🧱 Structure des cas de test
+## 2.  Structure des cas de test
 
 | ID   | Nom du test                           | Type de test     | Objectif                                    | Entrée                                   | Résultat attendu                     |
 | ---- | ------------------------------------- | ---------------- | ------------------------------------------- | ---------------------------------------- | ------------------------------------ |
@@ -28,16 +28,16 @@ Ce plan de test vise à valider le bon fonctionnement et la sécurité de l’AP
 
 ---
 
-## 3. 🧪 Stratégie de test
+## 3.  Stratégie de test
 
-* 📦 **Unitaire** : Tests JUnit avec Mockito pour `UserService`, `VehicleService`, `JwtUtil`
-* 🌐 **Intégration** : Tests MockMvc pour `AuthController`, `VehicleController`
-* 📫 **Manuel** : Tests Postman pour les flux utilisateur classiques
-* 📈 **Couverture** : JaCoCo utilisé pour mesurer la couverture des tests
+**Unitaire** : Tests JUnit avec Mockito pour `UserService`, `VehicleService`, `JwtUtil`
+**Intégration** : Tests MockMvc pour `AuthController`, `VehicleController`
+**Manuel** : Tests Postman pour les flux utilisateur classiques
+**Couverture** : JaCoCo utilisé pour mesurer la couverture des tests
 
 ---
 
-## 4. 📂 Fichiers de test associés
+## 4.  Fichiers de test associés
 
 | Fichier de test              | Cible                                                |
 | ---------------------------- | ---------------------------------------------------- |
@@ -49,6 +49,6 @@ Ce plan de test vise à valider le bon fonctionnement et la sécurité de l’AP
 
 ---
 
-## 5. 📌 Résumé
+## 5.  Résumé
 
 Ce plan de test fournit un cadre clair pour assurer la fiabilité et la sécurité de l’API `vehicleapi`. Il servira de base pour le suivi des tests fonctionnels et de sécurité.

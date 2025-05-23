@@ -3,7 +3,7 @@ package com.propelize.vehicleapi.dto;
 import jakarta.validation.constraints.NotBlank;
 
 public class AuthRequest {
-    
+
     @NotBlank
     private String name;
 

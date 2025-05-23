@@ -33,7 +33,7 @@ public class AuthController {
         }
     }
 
-    // Endpoint de connexion
+    // Endpoint de la connexion
     @PostMapping("/login")
     public ResponseEntity<AuthResponse> login(@RequestBody AuthRequest authRequest) {
         String token = userService.authenticate(authRequest);
