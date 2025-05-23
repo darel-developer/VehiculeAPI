@@ -43,7 +43,8 @@ src/
 ---
 
 ## ⚙️ Lancement en local 
-
+0. Avec docker 
+```docker-compose up --build
 1. Crée la base de données :
 
 ```sql
