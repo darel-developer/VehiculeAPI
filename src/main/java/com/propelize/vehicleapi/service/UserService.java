@@ -30,7 +30,7 @@ public class UserService {
         this.userRepository = repo;
     }
 
-    // Récupérer chaque utilisateurs
+    // Récupérer chaque utilisateurs dans la liste
     public List<User> getAllUsers() {
         return userRepository.findAll();
     }
@@ -60,6 +60,6 @@ public class UserService {
                 return jwtUtil.generateToken(user.getName());
             }
         }
-        throw new RuntimeException("Identifiants invalides");
+        throw new RuntimeException("information faux");
     }
 }
