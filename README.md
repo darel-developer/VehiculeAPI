@@ -303,6 +303,8 @@ DELETE
 ```
 #👨‍💻 Auteur
 Développé dans le cadre du TP00 - TP01 – Software Testing - API Construction pour le cours ICT 304.
+![CI Propelize](https://github.com/TON_UTILISATEUR/TON_REPO/actions/workflows/ci.yml/badge.svg)
+
 
 Université de Yaoundé I
 Département d’Informatique – Faculté des Sciences
@@ -311,4 +313,6 @@ Encadré par Dr KIMBI
 
 # VehiculeAPI
 test d'une api de véhicule 
+
+
 
