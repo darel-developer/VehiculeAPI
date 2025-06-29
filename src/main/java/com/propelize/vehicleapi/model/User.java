@@ -1,21 +1,19 @@
 package com.propelize.vehicleapi.model;
 
-import jakarta.persistence.*;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-@Entity
-@Table(name = "users")
+@Document(collection = "users")
 public class User {
 
-    @Id // Indique que ce champ est la clé primaire
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Id
+    private String id;
 
-    // Attributs représentant les propriétés de l'utilisateur
-    @Column(unique = true)
+    @Indexed(unique = true)
     private String name;
     private String password;
 
-    // Constructeurs
     public User() {}
 
     public User(String name, String password) {
@@ -23,8 +21,7 @@ public class User {
         this.password = password;
     }
 
-    // Getters et Setters
-    public Long getId() {
+    public String getId() {
         return id;
     }
 

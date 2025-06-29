@@ -21,7 +21,6 @@ public class DatabaseSeeder implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        // Vérifier si la table "vehicles" est vide
         if (vehicleRepository.count() == 0) {
             List<Vehicle> vehicles = List.of(
                 new Vehicle("Toyota", "Corolla", "car", "AB123CD", 2020, 20000),
@@ -32,7 +31,6 @@ public class DatabaseSeeder implements CommandLineRunner {
             vehicleRepository.saveAll(vehicles);
         }
 
-        // Vérifier si la table "users" est vide
         if (userRepository.count() == 0) {
             List<User> users = List.of(
                 new User("admin", "admin123"),

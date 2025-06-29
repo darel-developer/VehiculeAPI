@@ -1,26 +1,21 @@
-// Déclaration du package de la classe
 package com.propelize.vehicleapi.model;
 
-import jakarta.persistence.*;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-@Entity
-@Table(name = "vehicles")
+@Document(collection = "vehicles")
 public class Vehicle {
 
-    @Id     //Indique que ce champ est la clé primaire
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Id
+    private String id;
 
-    // Attributs représentant les propriétés du véhicule (Marque, Modèle, Type, Numéro de plaque, Annee de fabrication, et Prix du vehicule)
     private String brand;
     private String model;
     private String type;
     private String plateNumber;
-
     private int year;
     private int price;
 
-    // Constructeurs
     public Vehicle() {}
 
     public Vehicle(String brand, String model, String type, String plateNumber, int year, int price) {
@@ -32,8 +27,7 @@ public class Vehicle {
         this.price = price;
     }
 
-    // Getters et Setters
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
