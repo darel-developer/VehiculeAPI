@@ -24,9 +24,12 @@ class VehicleServiceTest {
     @Mock
     private VehicleRepository vehicleRepository;
 
+    private Vehicle vehicle;
+
     @BeforeEach
     void setUp() {
         MockitoAnnotations.openMocks(this);
+        vehicle = new Vehicle("Toyota", "Camry", "Car", "ABC123", 2020, 24000);
     }
 
     @Test
@@ -45,21 +48,17 @@ class VehicleServiceTest {
 
     @Test
     void testGetVehicleById() {
-        Vehicle vehicle = new Vehicle("Toyota", "Camry", "Car", "ABC123", 2020, 24000);
+        when(vehicleRepository.findById("12345")).thenReturn(Optional.of(vehicle));
 
-        when(vehicleRepository.findById(1L)).thenReturn(Optional.of(vehicle));
-
-        Optional<Vehicle> result = vehicleService.getVehicleById(1L);
+        Optional<Vehicle> result = vehicleService.getVehicleById("12345");
 
         assertTrue(result.isPresent());
         assertEquals("Toyota", result.get().getBrand());
-        verify(vehicleRepository, times(1)).findById(1L);
+        verify(vehicleRepository, times(1)).findById("12345");
     }
 
     @Test
     void testSaveVehicle() {
-        Vehicle vehicle = new Vehicle("Toyota", "Camry", "Car", "ABC123", 2020, 24000);
-
         when(vehicleRepository.save(vehicle)).thenReturn(vehicle);
 
         Vehicle savedVehicle = vehicleService.saveVehicle(vehicle);
@@ -71,7 +70,7 @@ class VehicleServiceTest {
 
     @Test
     void testDeleteVehicle() {
-        Long vehicleId = 1L;
+        String vehicleId = "12345";
 
         doNothing().when(vehicleRepository).deleteById(vehicleId);
 

@@ -57,7 +57,7 @@ class VehicleControllerTest {
 
     @Test
     void testUpdateVehicle_Found() {
-        Long id = 1L;
+        String id = "12345"; // Changé de Long à String
         Vehicle existing = new Vehicle("Toyota", "Corolla", "Car", "ABC123", 2020, 15000);
         Vehicle updated = new Vehicle("Toyota", "Yaris", "Car", "ABC123", 2021, 16000);
 
@@ -74,7 +74,7 @@ class VehicleControllerTest {
 
     @Test
     void testUpdateVehicle_NotFound() {
-        Long id = 1L;
+        String id = "12345"; // Changé de Long à String
         Vehicle updated = new Vehicle("Toyota", "Yaris", "Car", "ABC123", 2021, 16000);
 
         when(vehicleService.getVehicleById(id)).thenReturn(Optional.empty());
@@ -88,11 +88,13 @@ class VehicleControllerTest {
 
     @Test
     void testDeleteVehicle() {
-        doNothing().when(vehicleService).deleteVehicle(anyLong());
+        String id = "12345"; // Changé de Long à String
 
-        var response = vehicleController.deleteVehicle(1L);
+        doNothing().when(vehicleService).deleteVehicle(anyString());
+
+        var response = vehicleController.deleteVehicle(id);
 
         assertEquals(204, response.getStatusCodeValue());
-        verify(vehicleService, times(1)).deleteVehicle(anyLong());
+        verify(vehicleService, times(1)).deleteVehicle(id);
     }
 }

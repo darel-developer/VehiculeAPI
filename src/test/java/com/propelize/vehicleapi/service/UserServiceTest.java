@@ -28,15 +28,15 @@ public class UserServiceTest {
     public void setUp() {
         MockitoAnnotations.openMocks(this);
         user = new User();
-        user.setName("sampleUser"); // Valeur générique, pas d'identifiant réel
-        user.setPassword("samplePassword"); // Valeur générique, pas de mot de passe réel
+        user.setName("sampleUser");
+        user.setPassword("samplePassword");
     }
 
     @Test
     public void testFindUserById() {
-        when(userRepository.findById(1L)).thenReturn(Optional.of(user));
+        when(userRepository.findById("12345")).thenReturn(Optional.of(user));
 
-        Optional<User> foundUser = userService.getUserById(1L);
+        Optional<User> foundUser = userService.getUserById("12345");
 
         assertTrue(foundUser.isPresent());
         assertEquals("sampleUser", foundUser.get().getName());
@@ -54,10 +54,10 @@ public class UserServiceTest {
 
     @Test
     public void testDeleteUser() {
-        doNothing().when(userRepository).deleteById(1L);
+        doNothing().when(userRepository).deleteById("12345");
 
-        userService.deleteUser(1L);
+        userService.deleteUser("12345");
 
-        verify(userRepository, times(1)).deleteById(1L);
+        verify(userRepository, times(1)).deleteById("12345");
     }
 }
