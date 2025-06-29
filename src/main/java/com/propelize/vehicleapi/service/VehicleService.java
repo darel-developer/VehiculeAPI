@@ -14,7 +14,6 @@ public class VehicleService {
     @Autowired
     private VehicleRepository vehicleRepository;
 
-    // Créer ou mettre à jour un véhicule
     public Vehicle saveVehicle(Vehicle vehicle) {
         return vehicleRepository.save(vehicle);
     }
@@ -23,28 +22,23 @@ public class VehicleService {
         this.vehicleRepository = repo;
     }
 
-    // Récupérer les véhicules selon leurs prix
     public List<Vehicle> getVehiclesByPrice(int price) {
         return vehicleRepository.findByPrice(price);
     }
 
-    // Récupérer les véhicules selon l'année'
     public List<Vehicle> getVehiculesByYear(int year) {
         return vehicleRepository.findByYear(year);
     }
 
-    // Récupérer tous les véhicules
     public List<Vehicle> getAllVehicles() {
         return vehicleRepository.findAll();
     }
 
-    // Récupérer un véhicule par ID
-    public Optional<Vehicle> getVehicleById(Long id) {
+    public Optional<Vehicle> getVehicleById(String id) {
         return vehicleRepository.findById(id);
     }
 
-    // Supprimer un véhicule
-    public void deleteVehicle(Long id) {
+    public void deleteVehicle(String id) {
         vehicleRepository.deleteById(id);
     }
 }

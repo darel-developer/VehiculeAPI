@@ -15,44 +15,35 @@ public class VehicleController {
     @Autowired
     private VehicleService vehicleService;
 
-    // 🔹endpoint Créer un véhicule
     @PostMapping
     public Vehicle createVehicle(@RequestBody Vehicle vehicle) {
         return vehicleService.saveVehicle(vehicle);
     }
 
-    // 🔹endpoint Récupérer tous les véhicules
     @GetMapping
     public List<Vehicle> getAllVehicles() {
-
         return vehicleService.getAllVehicles();
     }
 
-    // endpoint Récupérer un véhicule par ID
     @GetMapping("/{id}")
-    public ResponseEntity<Vehicle> getVehicleById(@PathVariable Long id) {
-
+    public ResponseEntity<Vehicle> getVehicleById(@PathVariable String id) {
         return vehicleService.getVehicleById(id)
                 .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build()); 
+                .orElse(ResponseEntity.notFound().build());
     }
 
-    // endpoint Récupérer un véhivule par le prix
     @GetMapping("/search/price/{price}")
     public ResponseEntity<List<Vehicle>> getVehiclesByPrice(@PathVariable int price) {
-
         return ResponseEntity.ok(vehicleService.getVehiclesByPrice(price));
     }
 
     @GetMapping("/search/year/{year}")
     public ResponseEntity<List<Vehicle>> getVehicleByYear(@PathVariable int year) {
-        return ResponseEntity.ok(vehicleService.getVehiculesByYear(year)); 
+        return ResponseEntity.ok(vehicleService.getVehiculesByYear(year));
     }
-    
 
-    // endpoint Mettre à jour un véhicule
     @PutMapping("/{id}")
-    public ResponseEntity<Vehicle> updateVehicle(@PathVariable Long id, @RequestBody Vehicle updatedVehicle) {
+    public ResponseEntity<Vehicle> updateVehicle(@PathVariable String id, @RequestBody Vehicle updatedVehicle) {
         return vehicleService.getVehicleById(id).map(vehicle -> {
             vehicle.setBrand(updatedVehicle.getBrand());
             vehicle.setModel(updatedVehicle.getModel());
@@ -64,10 +55,8 @@ public class VehicleController {
         }).orElse(ResponseEntity.notFound().build());
     }
 
-    // 🔹endpoint Supprimer un véhicule
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteVehicle(@PathVariable Long id) {
-
+    public ResponseEntity<Void> deleteVehicle(@PathVariable String id) {
         vehicleService.deleteVehicle(id);
         return ResponseEntity.noContent().build();
     }
