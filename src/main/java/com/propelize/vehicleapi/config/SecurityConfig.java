@@ -25,16 +25,22 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-            .csrf(csrf -> csrf.disable()) // Désactiver CSRF
+            .csrf(csrf -> csrf.disable())
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/auth/**").permitAll() // Autoriser les endpoints /auth/**
-                .anyRequest().authenticated() // Toutes les autres requêtes nécessitent une authentification
+                .requestMatchers(
+                    "/",                // page d'accueil (login)
+                    "/login",           // endpoint login
+                    "/users/register",  // page inscription
+                    "/users/register/**",
+                    "/auth/**",
+                    "/css/**", "/js/**", "/images/**", "/webjars/**", "/assets/**"
+                ).permitAll()
+                .anyRequest().authenticated()
             )
             .sessionManagement(session -> session
-                .sessionCreationPolicy(SessionCreationPolicy.STATELESS) // Session sans état
+                .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
             );
 
-        // Ajouter le filtre JWT avant UsernamePasswordAuthenticationFilter
         http.addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
