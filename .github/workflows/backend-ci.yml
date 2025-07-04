@@ -11,14 +11,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: 📥 Cloner le dépôt
+      - name:  Cloner le dépôt
         uses: actions/checkout@v3
 
-      - name: ☕ Installer Java 17
+      - name:  Installer Java 17
         uses: actions/setup-java@v3
         with:
           distribution: 'temurin'
           java-version: '17'
 
-      - name: 🚀 Compiler et lancer les tests
+      - name:  Compiler et lancer les tests
         run: mvn clean verify

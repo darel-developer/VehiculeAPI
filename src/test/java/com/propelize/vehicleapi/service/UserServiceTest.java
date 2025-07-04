@@ -44,6 +44,8 @@ public class UserServiceTest {
 
     @Test
     public void testSaveUser() {
+        // Mock pour éviter l'exception de doublon
+        when(userRepository.findByNameIgnoreCase(user.getName())).thenReturn(Optional.empty());
         when(userRepository.save(user)).thenReturn(user);
 
         User savedUser = userService.saveUser(user);
